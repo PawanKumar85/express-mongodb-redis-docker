@@ -1,0 +1,1 @@
+2426e0a2b346   redis/redis-stack:latest   "/entrypoint.sh"   6 hours ago   Up 6 hours   0.0.0.0:6379->6379/tcp, 0.0.0.0:8001->8001/tcp   redis-container
