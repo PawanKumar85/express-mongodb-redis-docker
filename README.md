@@ -20,8 +20,8 @@ This project is a production-ready RESTful API built using Express, MongoDB, Red
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/express-task-api.git
-cd express-task-api
+git clone https://github.com/PawanKumar85/express-mongodb-redis-docker.git
+cd express-mongodb-redis-docker
 ```
 
 ### 2. Configure Environment Variables
@@ -30,15 +30,15 @@ Create a .env file in the root of the project and set the following environment 
 
 ```env
 # MongoDB connection string
-MONGODB_URI=mongodb://mongodb:27017/your_database_name
+MONGODB_URI=mongodb://mongodb:27017/redis-api
 
 # Redis configuration
+MONGODB_URI=mongodb://mongodb:27017/redis-api
 REDIS_HOST=redis
 REDIS_PORT=6379
+NODE_ENV=production
+JWT_SECRET=jwt-secret
 CACHE_EXPIRY=3600
-
-# JWT Secret for authentication
-JWT_SECRET=your_jwt_secret
 
 # Port for Express app (optional, defaults to 5000)
 PORT=5000
@@ -56,6 +56,7 @@ docker-compose up --build -d
 ```
 
 This command will:
+
 - Build the Express application image.
 - Start the MongoDB, Redis, and Redis Commander services.
 - Connect all containers through a custom Docker network.
@@ -68,11 +69,13 @@ This command will:
 ## #5. API Endpoints
 
 ### User Endpoints
+
 - **Register**: `POST /api/users/register`
 - **Login**: `POST /api/users/login`
 - **Logout**: `POST /api/users/logout`
 
 ### Task Endpoints (Protected; Requires JWT Authentication)
+
 - **Create Task**: `POST /api/task/`
 - **Get All Tasks**: `GET /api/task/`
 - **Get Task by ID**: `GET /api/task/:id`
